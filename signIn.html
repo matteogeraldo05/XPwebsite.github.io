@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign In</title>
+    <link rel="icon" type="image/x-icon" href="images/xpIcons/ico/User 1.ico">
+    <meta charset="UTF-8" />
+
+    <!-- Windows XP Theme (include only one theme at a time) deez nuts -->
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <style>
+      body {
+          background: url(images/signIn.png);
+          background-size: cover;
+          background-repeat: repeat;
+          margin: 0px;
+          padding:0;
+          height: 100%;
+        }
+
+      .vertical-center {
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+      
+      .scanLine{
+      position: relative;
+      z-index: 3000;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      pointer-events: none;
+      }
+</style>
+  </head>
+  <img class="scanLine" src="images/scanlines.png">
+  <body>
+    
+    <center>
+    
+            <div class="vertical-center">
+    
+    <div class="window" style="width: 350px">
+        <div class="title-bar">
+          <div class="title-bar-text">Log On to Windows</div>
+        </div>
+        <div class="window-body">
+
+          <!-- create a div to display the error message -->
+          <div id="errorMessage" style="color: red;"></div>
+          <br>
+
+          <div class="field-row" style="width: 284px">
+              <label for="text22">Username:</label>
+              <input style="width: 180px;" id="text22" disabled type="email" value="matteogeraldo05"/>
+            </div>
+<br>
+  <form onsubmit="return checkPassword()">
+      <div class="field-row" style="width: 284px">
+        <label for="text23">Password:</label>
+        <input style="width: 180px;" id="passwordInput" type="password" name="password" value=""/>
+      </div>
+      <br>
+      <!-- create a div to display the hint message -->
+      <div id="hintMessage" style="color: blue;">Click for hint</div>
+      <br>
+      <button type="button" id="submitButton" value="Submit" onclick="checkPassword()">Submit</button>
+      <audio id="audio" src="Startup.mp3"></audio>
+    </form>
+        
+      </div>
+    </div>
+            </div> <!-- center -->
+    <script>
+      function checkPassword() {
+        // get the password from the input
+        var password = document.getElementById("passwordInput").value;
+  
+        // check if the password is "kanye" or "julia"
+        if (password == "kanye") {
+          // redirect to main.html
+          window.location.replace("main.html");
+        } else if (password == "julia") {
+          // redirect to secret.html
+          window.location.replace("secret.html");
+        } else {
+          // display an error message
+          document.getElementById("errorMessage").innerHTML = "Incorrect password. Try again.";
+        }
+  
+        // prevent the form from being submitted and refreshing the page
+        return false;
+      }
+  
+      // add a click event listener to the hint message div
+      document.getElementById("hintMessage").addEventListener("click", function() {
+        // change the text of the hint message div to the hint
+        this.innerHTML = "HINT: Who is Matteo's favorite person?";
+      });
+    </script>
+    </center>
+  </body>
+</html>

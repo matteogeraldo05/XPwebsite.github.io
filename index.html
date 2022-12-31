@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BOOTING UP</title>
+    <link rel="icon" type="image/x-icon" href="images/xpIcons/ico/Desktop.ico">
+    <meta charset="UTF-8" />
+
+    <!-- Windows XP Theme (include only one theme at a time) -->
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <style>
+        body{
+            background-color: black;
+            margin:0;
+            padding:0;
+        }
+
+        pre {
+            display: block;
+            padding: 12px 8px;
+            background-color: #000;
+            color: white;
+            font-size: 1.3rem;
+            margin: 0;
+            line-height: 10%;
+        }
+    </style>
+
+  </head>
+
+  <body>
+<pre id="boot1"></pre>
+<pre id="boot2"></pre>
+<pre id="boot3"></pre>
+<br>
+<pre id="boot4"></pre>
+<pre id="boot5"></pre>
+<pre id="boot6"></pre>
+<br>
+<pre id="boot7"></pre>
+<pre id="bootCPU"></pre>
+<pre id="bootRAM"></pre>
+<pre id="bootGPU"></pre>
+<br>
+<pre id="boot8"></pre>
+<pre id="boot9"></pre>
+<br>
+<br>
+<br>
+<pre id="bootEnd"></pre>
+    <script>setTimeout(function() {
+        document.getElementById("boot1").innerHTML = "MDAG OS 6.0 Release 5.0"
+        }, 1000);
+    setTimeout(function() {
+        document.getElementById("boot2").innerHTML = "Copyright 1977-2022 Matteo De Angelis Geraldo Ltd."
+        }, 1050);
+    setTimeout(function() {
+        document.getElementById("boot3").innerHTML = "All Rights Reserved"
+        }, 1090);
+    setTimeout(function() {
+        document.getElementById("boot4").innerHTML = "OS version 16.05"
+        }, 1400);
+    setTimeout(function() {
+        document.getElementById("boot5").innerHTML = "Gateway Solo 2005"
+        }, 1600);
+    setTimeout(function() {
+        document.getElementById("boot6").innerHTML = "System ID = 6478301540"
+        }, 1700);
+    setTimeout(function() {
+        document.getElementById("boot7").innerHTML = "Beginning Calibration"
+        }, 2100);
+    setTimeout(function() {
+        document.getElementById("bootCPU").innerHTML = "    CPU = Intel(R) Core(TM) i11-4790 Processor 12.60 GHz"
+        }, 3000);
+    setTimeout(function() {
+        document.getElementById("bootRAM").innerHTML = "    RAM = Corsair(TM) Pro(TM) 128Gb DDR8 14400 MHz"
+        }, 4500);
+    setTimeout(function() {
+        document.getElementById("bootGPU").innerHTML = "    GPU = NVIDIA(R) GeForce RTX(R) 164080 GDDR6X 24GB 6.30 GHz"
+        }, 6000);
+    setTimeout(function() {
+        document.getElementById("boot8").innerHTML = "Calibration Complete"
+        }, 9000);
+    setTimeout(function() {
+        document.getElementById("boot9").innerHTML = "All Systems Operational"
+        }, 12000);
+    setTimeout(function() {
+        document.getElementById("bootEnd").innerHTML = "Press any key to continue"
+        }, 13000);</script>
+        <div id="next">
+        <script>
+            document.addEventListener("keydown", function() {
+                window.location.replace("signIn.html");
+            });
+
+            document.addEventListener("click", function() {
+                window.location.replace("signIn.html");
+            });
+        </script>
+        </div>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>flowers</title>
+    <link rel="icon" type="image/x-icon" href="images/xpIcons/ico/User Accounts.ico">
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <style>
+      @font-face {
+  font-family: 'windowsFont';
+  src: url('Windows.ttf') format('truetype');
+}
+
+body {
+  background: url(images/Wallpapers/Flower.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  margin: 0;
+}
+#solitaire-ending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.scanLine{
+  
+  position: relative;
+  z-index: 3000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.appText {
+  font-family: windowsFont;
+  font-size: medium;
+  color: white;
+  margin: 0;
+  position: absolute;
+  text-shadow: 2px 2px 2px black;
+  top: 50%;
+  left: 5%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, 25%);    
+}
+
+
+/* COMPUTER */
+#ComputerImageElement {
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 5%;
+}
+
+#computerText {
+  top: 10%;
+  left: 5%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, 40%);
+}
+
+#taskbar {
+  z-index: 2000;
+  content:url(images/taskbar.png);
+  height: 32px;
+  width: 10000px;
+  position: fixed;
+  bottom: 0;
+  transform: translate(0%, 10%);  
+}
+
+#clock {
+  z-index: 2051;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: windowsFont;
+  font-size: medium;
+  color: white;
+  transform: translate(-15%, -15%);
+}
+
+/* Style the start button */
+.start-button {
+  z-index: 2052;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* Style the start menu */
+.start-menu {
+  z-index: 2051;
+  position: fixed;
+  bottom: 32px;
+  left: 0;
+  background-color: white;
+  border: 1px solid gray;
+  display: none;
+}
+
+/* Style the start menu links */
+.start-menu a {
+  z-index: 2051;
+  width: 100px;
+  height: 15px;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+/* Style the start menu links on hover */
+.start-menu a:hover {
+  z-index: 2051;
+  background-color: lightgray;
+}
+
+#solitaire-ending{
+  height: 100%;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  pointer-events: none;
+}
+    </style>
+
+  </head>
+  <img class="scanLine" src="images/scanlines.png">
+  <body>
+    
+  <!---------------------🖥️🖥️🖥️🖥️🖥️MY COMPUTER🖥️🖥️🖥️🖥️🖥️--------------------->
+  <!-- Image that opens window when double-clicked -->
+  <img id="ComputerImageElement" src="images/xpIcons/File.png" style="cursor:pointer"> 
+  <div class="appText" id="computerText"><p>Click Me</p></div>
+  <div id="solitaire-ending"></div>
+  
+  <script>
+    const container = document.getElementById("solitaire-ending");
+    const triggerImage = document.getElementById("ComputerImageElement");
+
+    const generateRandomPosition = () => {
+      return Math.random() * 100 + "%";
+    };
+
+    const generateRandomDuration = () => {
+      return Math.random() * 6 + 2 + "s";
+    };
+
+    const showSolitaireEnding = () => {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("img");
+        heart.src = "images/xpIcons/Heart.png";
+        heart.style.position = "absolute";
+        heart.style.top = "50%";
+        heart.style.left = "50%";
+        heart.style.transform = "translate(-50%, -50%) rotate(" + (Math.random() * 360) + "deg)";
+        heart.style.transition = "all " + generateRandomDuration() + " linear";
+
+        container.appendChild(heart);
+
+        setTimeout(function () {
+          heart.style.top = generateRandomPosition();
+          heart.style.left = generateRandomPosition();
+        }, i * 100);
+      }
+    };
+
+    triggerImage.addEventListener("dblclick", showSolitaireEnding);
+
+  </script>
+
+    <!--taskbar-->
+  <div id="taskbar">
+    <img src="images/taskbar.png"></img>
+  </div>
+
+<div id="clock"></div>
+  <script>
+  function updateClock() {
+    const clock = document.getElementById('clock');
+    const date = new Date();
+    clock.innerHTML = date.toLocaleString();
+  }
+  setInterval(updateClock, 1000);
+</script>
+
+
+<img src="images/XPButton.png" class="start-button" id="start-button">
+<div class="start-menu" id="start-menu">
+  <a href="secret.html">Home</a>
+</div>
+
+<script>
+  // Get the start button and menu elements
+  const startButton = document.getElementById("start-button");
+  const startMenu = document.getElementById("start-menu");
+
+  // Add an event listener for when the mouse hovers over the start button
+  startButton.addEventListener("mouseenter", function() {
+    startButton.src = "images/XPButtonHover.png";
+  });
+
+  // Add an event listener for when the mouse leaves the start button
+  startButton.addEventListener("mouseleave", function() {
+    startButton.src = "images/XPButton.png";
+  });
+
+  // Add an event listener for when the start button is clicked
+  startButton.addEventListener("click", function() {
+    startButton.src = "images/XPButtonClicked.png";
+    startMenu.style.display = "block";
+  });
+
+  // Add an event listener for when the user clicks anywhere outside of the start menu
+  window.addEventListener("click", function(event) {
+    if (event.target != startMenu && event.target != startButton) {
+      startButton.src = "images/XPButton.png";
+      startMenu.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
